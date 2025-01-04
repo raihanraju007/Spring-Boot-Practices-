@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "students")
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
+//@NoArgsConstructor
+//@AllArgsConstructor
+//@Data
 
 public class StudentEntity {
     @Id
@@ -21,4 +21,48 @@ public class StudentEntity {
 
     private String email;
     private String cellNo;
+
+
+
+    public StudentEntity() {
+    }
+
+    public StudentEntity(int id, String name, String email, String cellNo) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.cellNo = cellNo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getCellNo() {
+        return cellNo;
+    }
+
+    public void setCellNo(String cellNo) {
+        this.cellNo = cellNo;
+    }
 }

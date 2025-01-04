@@ -3,6 +3,7 @@ package com.raju.bootcamp.restcontroller;
 import com.raju.bootcamp.entity.StudentEntity;
 import com.raju.bootcamp.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -26,8 +27,10 @@ public class StudentController {
     }
 
     @PostMapping("/save")
-    public void saveStudent(@RequestBody StudentEntity student){
+    public ResponseEntity<String> saveStudent(@RequestBody StudentEntity student){
         studentService.saveStudent(student);
+
+        return new ResponseEntity<>("Student save successfully", HttpStatus.CREATED);
     }
 
 }
