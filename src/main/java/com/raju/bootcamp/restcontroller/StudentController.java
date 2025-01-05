@@ -33,4 +33,5 @@ public class StudentController {
         return new ResponseEntity<>("Student save successfully", HttpStatus.CREATED);
     }
 
+
 }
