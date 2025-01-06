@@ -38,5 +38,29 @@ public class StudentService {
         studentRepository.deleteById(id);
     }
 
+    public StudentEntity updateStudent(int id, StudentEntity student){
+        StudentEntity existingStudent = studentRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Student not found with Id: "+id));
+        if (student.getName() !=null){
+            existingStudent.setName(student.getName());
+        }
+        if (student.getEmail() !=null){
+            existingStudent.setEmail(student.getEmail());
+        }
+        if (student.getCellNo() !=null){
+            existingStudent.setCellNo(student.getCellNo());
+        }
+
+        return studentRepository.save(existingStudent);
+    }
+
+    public void updateStudent(StudentEntity student){
+        studentRepository.save(student);
+    }
+
+    public StudentEntity findStudentByEmail(String email){
+        return studentRepository.findByEmail(email)
+                .orElseThrow(()->new EntityNotFoundException("Student not found with Email: "+email));
+    }
 
 }
