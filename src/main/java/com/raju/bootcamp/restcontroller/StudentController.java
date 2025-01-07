@@ -8,7 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -28,8 +30,10 @@ public class StudentController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<String> saveStudent(@RequestBody StudentEntity student){
-        studentService.saveStudent(student);
+    public ResponseEntity<String> saveStudent(
+            @RequestPart StudentEntity student,
+            @RequestParam(value = "image",required = true)MultipartFile file) throws IOException {
+        studentService.saveStudent(student,file);
 
         return new ResponseEntity<>("Student save successfully", HttpStatus.CREATED);
     }

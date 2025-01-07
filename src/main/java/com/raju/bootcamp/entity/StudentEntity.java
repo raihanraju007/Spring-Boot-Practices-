@@ -21,17 +21,21 @@ public class StudentEntity {
 
     private String email;
     private String cellNo;
+    private String image;
 
 
 
     public StudentEntity() {
     }
 
-    public StudentEntity(int id, String name, String email, String cellNo) {
+
+
+    public StudentEntity(int id, String name, String email, String cellNo, String image) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.cellNo = cellNo;
+        this.image = image;
     }
 
     public int getId() {
@@ -64,5 +68,13 @@ public class StudentEntity {
 
     public void setCellNo(String cellNo) {
         this.cellNo = cellNo;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
